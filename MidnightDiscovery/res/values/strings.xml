@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Midnight Discovery</string>
+    
+    <string name="dialog_title">Message</string>
+    <string name="dialog_accept">Accept</string>
+    <string name="dialog_active">Active</string>
+    <string name="dialog_cancel">Cancel</string>
+	
+    <string name="action_login">Login</string>
+    <string name="action_register">Register</string>
+    <string name="action_go_home">Go to homepage</string>
+    <string name="action_logout">Logout</string>
+</resources>

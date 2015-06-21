@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Strings related to register -->
+    <string name="prompt_username">Tên đăng nhập</string>
+    <string name="prompt_password">Mật khẩu</string>
+    <string name="prompt_password_2">Nhập lại mật khẩu</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_fullname">Họ và tên</string>
+    
+    <string name="error_field_required">Mục này là bắt buộc</string>
+    <string name="error_username_short">Tên đăng nhập quá ngắn</string>
+    <string name="error_password_short">Mật khẩu quá ngắn</string>
+    <string name="error_password_mismatch">Hai mật khẩu không khớp</string>
+    <string name="error_invalid_email">Địa chỉ email không hợp lệ</string>
+    <string name="error_fullname_short">Họ tên quá ngắn</string>
+
+    <string name="t_have_account">Đã có tài khoản? Đăng nhập ngay</string>
+    <string name="t_lost_password">Quên mật khẩu?</string>
+    <string name="t_no_account">Chưa có tài khoản? Đăng kí ngay</string>
+    <string name="t_logging_in">Đang đăng nhập&#8230;</string>
+	<string name="t_sending_request">Đang gửi yêu cầu&#8230;</string>
+	<string name="t_creating_account">Đang tạo mới tài khoản&#8230;</string>
+    
+    <string name="dialog_title_email">Nhập email tài khoản của bạn</string>
+</resources>

@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Strings related to register -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_password_2">Retype Password</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_fullname">Fullname</string>
+    
+    <string name="error_field_required">This field is required</string>
+    <string name="error_username_short">This username is too short</string>
+    <string name="error_password_short">This password is too short</string>
+    <string name="error_password_mismatch">Two password are mismatch</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_fullname_short">This name is too short</string>
+    
+    <string name="t_have_account">Already register? Login now</string>
+	<string name="t_lost_password">Lost password?</string>
+	<string name="t_no_account">Not have acccount? Register now</string>
+	<string name="t_logging_in">Logging in your account&#8230;</string>
+	<string name="t_sending_request">Sending your request&#8230;</string>
+	<string name="t_creating_account">Creating your account&#8230;</string>
+	
+	<string name="dialog_title_email">Enter your account email</string>
+</resources>

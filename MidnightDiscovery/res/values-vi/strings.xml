@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_title">Thông báo</string>
+    <string name="dialog_accept">Đồng ý</string>
+    <string name="dialog_active">Kích hoạt</string>
+    <string name="dialog_cancel">Hủy bỏ</string>
+	
+    <string name="action_login">Đăng nhập</string>
+    <string name="action_register">Đăng kí</string>
+    <string name="action_go_home">Đi đến trang chủ</string>
+    <string name="action_logout">Đăng xuất</string>
+</resources>
