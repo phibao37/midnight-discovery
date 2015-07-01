@@ -1,3 +1,8 @@
+## Project Documentation
+
+This is the server version of Midnight Discovery project, that build an application to
+run on Android platform.
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
