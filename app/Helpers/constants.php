@@ -18,7 +18,15 @@ define('CODE_ACTIVE', 4);
 /** The csrf token missing or incorrect */
 define('CODE_TOKEN', 5);
 
-/** Return a response with a message and code */
+/**
+ * Return a response with a message and code
+ * 
+ * @param string $msg_id        	
+ * @param int $success        	
+ * @param int|array|mixed $data     	
+ * @return \Illuminate\Http\JsonResponse
+ *
+ */
 function msg($msg_id, $success = CODE_ERROR, $data = null){
 	$response = array('success' => $success, 'message' => trans($msg_id));
 	if ($data != null)

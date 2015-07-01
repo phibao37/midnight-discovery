@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('csrf', function(){
-	return msg('', CODE_SUCCESS, csrf_token());
-});
+Route::get('csrf', 'HomeController@csrf');
 
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@login');
@@ -22,8 +20,4 @@ Route::get('activeAccount/{username}/{code}',
 		['uses' => 'UserController@activeAccount', 'as' => 'activeAccount']);
 Route::get('getPassword', 'UserController@getPassword');
 
-
-Route::get('test', 'TestController@test');
-Route::get('/', function () {
-	
-});
+Route::get('/', 'HomeController@index');
