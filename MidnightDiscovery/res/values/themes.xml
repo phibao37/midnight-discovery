@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <!-- the theme applied to the application or activity -->
-    <style name="AppTheme"
+    
+    <style name="App"
         parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_night_sky</item>
-        <item name="buttonStyle">@style/AppButton</item>
+    </style>
+    
+    <style name="App.Theme"
+        parent="@style/App">
+        <item name="buttonStyle">@style/App.Button</item>
     </style>
 	
-    <style name="AppButton" parent="@style/Widget.AppCompat.Button.Small">
+    <style name="App.Theme.ButtonExtend" parent="@style/App">
+       <item name="buttonStyle">@style/App.Button.Extend</item>
+    </style>
+    
+    <!-- Button Style -->
+    
+    <style name="App.Button" parent="@style/Widget.AppCompat.Button.Small">
         <item name="android:background">@color/bg_button</item>
         <item name="textAllCaps">false</item>
-        <item name="android:minHeight">40dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+    
+    <style name="App.Button.Extend" parent="@style/App.Button">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
     </style>
 
 </resources>

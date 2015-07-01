@@ -24,18 +24,13 @@ public class Response {
 	/** The response message */
 	public final String message;
 	
-	private JSONObject mObjectData;
-	private JSONArray mArrayData;
+	private JSONObject mJson;
 	
 	private Response(JSONObject json) throws JSONException{
 		code = json.getInt(JS_CODE);
 		message = json.getString(JS_MESSAGE);
 		if (json.has(JS_DATA)){
-			try{
-				mObjectData = json.getJSONObject(JS_DATA);
-			} catch (JSONException e){
-				mArrayData = json.getJSONArray(JS_DATA);
-			}
+			mJson = json;
 		}
 	}
 	
@@ -50,7 +45,7 @@ public class Response {
 	 * <ul>
 	 * 	<li><b>success (int)</b>: Represent a 'success' code</li>
 	 * 	<li><b>message (String)</b>: Represent a response message</li>
-	 * 	<li><i>success (Optional)</i>: Represent an optional response data<br/>
+	 * 	<li><i>data (Optional)</i>: Represent an optional response data<br/>
 	 * 	If set, the mapped value must be a {@link JSONObject} or {@link JSONArray}</li>
 	 * </ul>
 	 * @return the {@link Response} object contains a HTTP response data
@@ -75,13 +70,19 @@ public class Response {
 	
 	/**
 	 * Return the data attached to the response
+	 * @param type the format of the data you want to retrieve, must be one of: 
+	 * {@link Integer}, {@link Long}, {@link Double}, {@link Boolean}, {@link JSONArray},
+	 * {@link JSONObject}, {@link String}
+	 * @return the data correspond to the type format, or <i>null</i> if not exists or the
+	 * format is invalid
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T getData(Class<T> type){
-		if (type == JSONObject.class)
-			return (T) mObjectData;
-		else
-			return (T) mArrayData;
+		try{
+			return (T) mJson.get(JS_DATA);
+		} catch (Exception e){
+			return null;
+		}
 	}
 	
 	private static final String JS_CODE = "success";

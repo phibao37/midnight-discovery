@@ -4,9 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import phibao37.ent.app.ID;
+import phibao37.ent.models.Manager.Manageable;
 
 /** Represent a application user*/
-public class User {
+public class User extends Manageable {
 	
 	private int id;
 	private String username;
@@ -67,7 +68,7 @@ public class User {
 	}
 
 	public boolean isMale() {
-		return sex;
+		return sex == false;
 	}
 	
 }

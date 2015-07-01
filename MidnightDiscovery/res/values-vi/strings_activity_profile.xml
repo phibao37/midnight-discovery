@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="t_profile">Thông tin</string>
+    <string name="t_account_info">Thông tin tài khoản</string>
+    
+    <string name="prompt_sex">Giới tính</string>
+    <string name="prompt_birthday">Ngày sinh</string>
+    <string name="sex_male">Nam</string>
+    <string name="sex_female">Nữ</string>
+</resources>

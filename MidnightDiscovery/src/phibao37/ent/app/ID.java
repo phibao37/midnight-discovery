@@ -15,9 +15,16 @@ public class ID {
 	public static final String URL_REACTIVE = HOST + "reactive";
 	public static final String URL_GET_PASSWORD = HOST + "getPassword";
 	
+	public static final String URL_CSRF = HOST + "csrf";
 	public static final String URL_TEST = HOST + "test";
 	
+	/* ------------------- BUNDLE PARAM ------------------- */
+	
+	public static final String EXTRA_USER = "user";
+	
 	/* ------------------- REQUEST PARAM NAME ------------------- */
+	
+	public static final String PARAM_TOKEN = "_token";
 	
 	public static final String PARAM_USERNAME = "username";
 	public static final String PARAM_PASSWORD = "password";

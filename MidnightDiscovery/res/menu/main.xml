@@ -3,5 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="phibao37.ent.midnightdiscovery.MainActivity" >
 
-
+	<!-- <item
+	    android:id="@+id/action_library"
+	    android:title="@string/nav_library"
+	    android:icon="@drawable/ic_library"
+	    app:showAsAction="ifRoom" /> -->
 </menu>

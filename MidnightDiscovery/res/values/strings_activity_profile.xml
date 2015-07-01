@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="t_profile">Profile</string>
+    <string name="t_account_info">Account information</string>
+    
+    <string name="prompt_sex">Gender</string>
+    <string name="prompt_birthday">Birthday</string>
+    <string name="sex_male">Male</string>
+    <string name="sex_female">Female</string>
+</resources>

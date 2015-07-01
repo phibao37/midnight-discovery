@@ -33,7 +33,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Build the HTTP request and get the response content with costom output
+ * Build the HTTP request and get the response content with costom output<br/>
+ * There are some special markup in some method docs:
+ * <ul>
+ * 	<li>@before [method2]: this method must be called before a call to [method2]</li>
+ * 	<li>@after [method2]: this method must be called after a call to [method2]</li>
+ * </ul>
  *  */
 public class HTTPBuilder {
 	

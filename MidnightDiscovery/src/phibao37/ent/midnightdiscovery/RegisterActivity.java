@@ -107,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity{
 	private void goLoginPage(){
 		Intent intent = new Intent(this, LoginActivity.class);
 		
+		intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
 		startActivity(intent);
 		finish();
 	}
@@ -286,6 +287,11 @@ public class RegisterActivity extends AppCompatActivity{
 		protected Response doInBackground(String... args) {
 
 			try {
+				String token = Response.parse(
+						mClient.setURL(ID.URL_CSRF)
+						.execute(JSONObject.class)
+					).getData(String.class);
+				
 				return Response.parse(mClient.setURL(ID.URL_REGISTER)
 						.setPostType(HTTPBuilder.POST_MULTIPART)
 						.addPost(ID.PARAM_USERNAME, args[0])
@@ -293,6 +299,7 @@ public class RegisterActivity extends AppCompatActivity{
 						.addPost(ID.PARAM_PASSWORD_2, args[2])
 						.addPost(ID.PARAM_EMAIL, args[3])
 						.addPost(ID.PARAM_FULLNAME, args[4])
+						.addPost(ID.PARAM_TOKEN, token)
 						.execute(JSONObject.class));
 			} catch (Exception e) {
 				if (ExecuteException.isCancelByUser(e))

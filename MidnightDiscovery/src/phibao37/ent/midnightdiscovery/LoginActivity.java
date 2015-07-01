@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity{
 			public void onClick(View v) {
 				Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 				
+				intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
 				startActivity(intent);
 				finish();
 			}
@@ -264,11 +265,17 @@ public class LoginActivity extends AppCompatActivity{
 		protected Response doInBackground(String... args) {
 
 			try {
+				String token = Response.parse(
+						mClient.setURL(ID.URL_CSRF)
+						.execute(JSONObject.class)
+					).getData(String.class);
+				
 				return Response.parse(
 						mClient.setURL(ID.URL_LOGIN)
 						.setPostType(HTTPBuilder.POST_URL_ENCODED)
 						.addPost(ID.PARAM_USERNAME, args[0])
 						.addPost(ID.PARAM_PASSWORD, args[1])
+						.addPost(ID.PARAM_TOKEN, token)
 						.execute(JSONObject.class));
 			} catch (Exception e) {
 				if (ExecuteException.isCancelByUser(e))
@@ -285,11 +292,17 @@ public class LoginActivity extends AppCompatActivity{
 			
 			if (r.code == ID.CODE_SUCCESS){
 				SessionManager.setUser(User.parseUser(r.getData(JSONObject.class)));
-				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 				
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK 
-						| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-				startActivity(intent);
+				if (getCallingActivity() == null) {
+					Intent intent = new Intent(LoginActivity.this,
+							MainActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+							| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+					startActivity(intent);
+				} else {
+					setResult(RESULT_OK);
+					finish();
+				}
 				return;
 			}
 			

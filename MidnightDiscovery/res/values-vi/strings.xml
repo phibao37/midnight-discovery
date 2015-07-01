@@ -9,4 +9,6 @@
     <string name="action_register">Đăng kí</string>
     <string name="action_go_home">Đi đến trang chủ</string>
     <string name="action_logout">Đăng xuất</string>
+    <string name="action_change_password">Đổi mật khẩu</string>
+    <string name="action_edit">Chỉnh sửa</string>
 </resources>

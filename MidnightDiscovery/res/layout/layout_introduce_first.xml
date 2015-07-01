@@ -34,7 +34,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/t_moon"
-            android:src="@mipmap/ic_moon" />
+            android:src="@drawable/ic_moon" />
 
     </LinearLayout>
 

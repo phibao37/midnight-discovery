@@ -83,27 +83,51 @@ public class WebBuilder extends HTTPBuilder {
 	}
 	
 	/**
-	 * Add a cookie with expire date set to spicific date after the time call this method
+	 * Add a cookie with expire date set to spicific time after the time call this method
 	 * @param name cookie name
 	 * @param value cookie value
-	 * @param day the amount of day that this cookie still valid
+	 * @param expire_type the type of expire time will be "plus" to remain valid, such as:
+	 * {@link Calendar#HOUR_OF_DAY}, {@link Calendar#DATE}, ...
+	 * @param expire_value the amount of expire_type that this cookie still remain valid 
 	 * @after {@link WebBuilder#setURL(String)}
 	 * @before {@link WebBuilder#execute(Class, Object...)}
 	 */
-	public WebBuilder addCookie(String name, String value, int day){
+	public WebBuilder addCookie(String name, String value,
+			int expire_type, int expire_value){
 		BasicClientCookie cookie = new BasicClientCookie(name, value);
 		Calendar calendar = Calendar.getInstance();
 		
-		calendar.add(Calendar.DATE, day);
+		calendar.add(expire_type, expire_value);
 		cookie.setExpiryDate(calendar.getTime());
 		cookie.setDomain(mURL.getHost());
 		mCookies.addCookie(cookie);
 		return this;
 	}
 	
+	
 	/** Retrieve all cookies from this builder*/
 	public List<Cookie> getCookies(){
 		return mCookies.getCookies();
+	}
+	
+	/** Clear all cookie stored in this client*/
+	public WebBuilder clearCookie(){
+		mCookies.clear();
+		return this;
+	}
+	
+	/** Clear all cookie stored in this client that will be expire
+	 *  after a specific amount of expire type
+	 *  @param expire_type the type of expire time will be "plus" to clear, such as:
+	 * {@link Calendar#HOUR_OF_DAY}, {@link Calendar#DATE}, ...
+	 * @param expire_value the amount of expire_type that these cookies will be clear 
+	 *   */
+	public WebBuilder clearCookie(int expire_type, int expire_value){
+		Calendar calendar = Calendar.getInstance();
+		
+		calendar.add(expire_type, expire_value);
+		mCookies.clearExpired(calendar.getTime());
+		return this;
 	}
 
 	@Override
@@ -135,7 +159,8 @@ public class WebBuilder extends HTTPBuilder {
 	/**
 	 * Extended version of {@link HTTPBuilder#execute(Class, Object...)}<br/>
 	 * In this version, after the response has been parsed; all GET and POST parameter,
-	 * the URL, are erased, you must re-specify it when make the following request
+	 * the URL, are erased, you must re-specify it when make the following request<br/>
+	 * The timeout limit and cookie are still remained
 	 * @after {@link WebBuilder#setURL(String)}
 	 */
 	@Override

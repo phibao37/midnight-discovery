@@ -1,7 +1,10 @@
 package phibao37.ent.utils;
 
+import java.util.Calendar;
+
 import phibao37.ent.app.App;
 import phibao37.ent.app.ID;
+import phibao37.ent.app.List;
 import phibao37.ent.models.User;
 import android.content.SharedPreferences;
 
@@ -35,6 +38,7 @@ public class SessionManager {
 	 */
 	public static void setUser(User user){
 		instance.mUser = user;
+		List.getUserManager().add(user);
 		
 		instance.prefs.edit()
 			.putInt(ID.PARAM_ID, user.getId())
@@ -55,5 +59,7 @@ public class SessionManager {
 	public static void logout(){
 		instance.mUser = null;
 		instance.prefs.edit().clear().commit();
+
+		App.getInstance().getWebBuilder().clearCookie(Calendar.YEAR, 10);
 	}
 }
